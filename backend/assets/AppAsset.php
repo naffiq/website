@@ -18,6 +18,8 @@ class AppAsset extends AssetBundle
     ];
     public $depends = [
         'yii\web\YiiAsset',
+        'common\assets\FontAsset',
         'yii\bootstrap\BootstrapAsset',
+        'backend\assets\MediumEditorAsset',
     ];
 }
