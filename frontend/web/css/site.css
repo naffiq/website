@@ -7,14 +7,11 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Merriweather", "Arial Black";
 }
 
-h1 {
-    font-size: 42px;
-}
 h2 {
     font-size: 32px;
 }
-h3 {
-
+h3, h1 {
+    font-size: 24px;
 }
 
 
@@ -37,11 +34,44 @@ h3 {
 }
 
 #header-nav ul li a {
-    color: #999;
+    color: #444;
 }
 
 #header-nav ul li a:hover {
     color: #000;
     text-decoration: none;
     border-bottom: dashed #000 1px;
+}
+
+#header-nav ul li.active a {
+    color: #000;
+    text-decoration: none;
+    border-bottom: solid #000 1px;
+}
+
+.ordered-list-view {
+    margin-top: 5px;
+}
+
+.ordered-list-view article {
+    margin-left: 20px;
+    position: relative;
+    margin-top: 15px;
+}
+
+.ordered-list-view .article-index {
+    position: absolute;
+    left: -20px;
+    color: #AAA;
+}
+
+
+.ordered-list-view article h4 a {
+    color: #000;
+}
+
+footer .container {
+    margin-top: 40px;
+    border-top: 1px solid #EEE;
+    padding-top: 40px;
 }

@@ -29,16 +29,30 @@ AppAsset::register($this);
 
     <nav id="header-nav">
         <ul>
-            <li><a href="<?= Url::to(['/site/about']) ?>">О себе</a></li>
-            <li><a href="<?= Url::to(['/projects']) ?>">Проекты</a></li>
+            <li <?= Url::current() == Url::to(['/site/about']) ? "class=\"active\"" : "" ?>>
+                <a href="<?= Url::to(['/site/about']) ?>">О себе</a>
+            </li>
+            <li <?= Url::current() == Url::to(['/projects']) ? "class=\"active\"" : "" ?>>
+                <a href="<?= Url::to(['/projects']) ?>">Проекты</a>
+            </li>
+            <?php /*
             <li><a href="<?= Url::to(['/music']) ?>">Музыка</a></li>
             <li><a href="<?= Url::to(['/blog']) ?>">Блог</a></li>
-            <li><a href="<?= Url::to(['/contact']) ?>">Контакты</a></li>
+            */ ?>
+            <li <?= Url::current() == Url::to(['/site/contact']) ? "class=\"active\"" : "" ?>>
+                <a href="<?= Url::to(['/site/contact']) ?>">Контакты</a>
+            </li>
         </ul>
     </nav>
 
     <?= $content ?>
 </div>
+
+<footer>
+    <div class="container">
+        «Безделье — игрушка дьявола» © <?= date('Y') ?>
+    </div>
+</footer>
 
 <?php $this->endBody() ?>
 </body>

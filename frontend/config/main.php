@@ -40,7 +40,11 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'about-me' => 'site/about'
+                'about-me' => 'site/about',
+                'contact-me' => 'site/contact',
+                'projects/page/<page:\d+>' => 'project/index',
+                'projects' => 'project/index',
+                'projects/<action>' => 'project/<action>',
             ],
         ],
     ],

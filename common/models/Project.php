@@ -4,6 +4,8 @@ namespace common\models;
 
 use common\models\queries\ProjectQuery;
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "projects".
@@ -25,6 +27,16 @@ class Project extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'projects';
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'value' => new Expression('NOW()')
+            ],
+        ];
     }
 
     /**

@@ -1,17 +1,9 @@
 <?php
 namespace frontend\controllers;
 
-use Yii;
-use yii\base\InvalidParamException;
-use yii\web\BadRequestHttpException;
+use common\models\Project;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
 
 /**
  * Site controller
@@ -41,7 +33,16 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $projectQuery = Project::find()->active()
+            ->orderBy(['updated_at' => SORT_DESC])->limit(5);
+
+        $projectProvider = new ActiveDataProvider([
+            'query' => $projectQuery
+        ]);
+
+        return $this->render('index', [
+            'projectProvider' => $projectProvider
+        ]);
     }
 
     public function actionAbout()
@@ -49,6 +50,13 @@ class SiteController extends Controller
         // TODO : Display data from DB
 
         return $this->render('about');
+    }
+
+    public function actionContact()
+    {
+        // TODO : Display data from DB
+
+        return $this->render('contact');
     }
 
 }
