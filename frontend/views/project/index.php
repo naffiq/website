@@ -3,9 +3,11 @@
  * @var $this \yii\web\View
  * @var $projectProvider \yii\data\ActiveDataProvider
  */
+
+$this->title = "Все проекты"
 ?>
 
-<h1>Все проекты</h1>
+<h1><?= $this->title ?></h1>
 
 <?= \yii\widgets\ListView::widget([
     'dataProvider' => $projectProvider,
